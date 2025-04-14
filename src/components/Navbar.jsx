@@ -51,9 +51,13 @@ const Navbar = () => {
           </li>
           <li className="nav-item">
             <a href="#" className="nav-link text-white">
-              <i className="bi bi-gear"></i> Settings
             </a>
           </li>
+          <li className="nav-item">
+            <Link to="/About" className="nav-link text-white">
+              <i className="bi bi-person"></i> About
+            </Link>
+            </li>
         </ul>
       </div>
     </>

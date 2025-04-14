@@ -24,7 +24,7 @@ const DetailSurat = () => {
 
   useEffect(() => {
     getDetailSurat(id);
-  }, [id]); // Jalankan useEffect setiap `id` berubah
+  }, [id]); 
 
   if (loading) return <p>Loading...</p>;
   if (!surat) return <p>Surat tidak ditemukan.</p>;

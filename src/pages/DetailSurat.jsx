@@ -39,29 +39,42 @@ const DetailSurat = () => {
         <p>Arti: {surat.arti}</p>
         <p>Deskripsi: {parse(surat.deskripsi)}</p>
         <div>
+        <div className="my-3 p-3 border rounded">
+  <h5>Audio Full Surah</h5>
+  <AudioPlayer
+    key={surat.nomor} 
+    url={surat.audioFull["05"]}
+    currentAudio={currentAudio}
+    setCurrentAudio={setCurrentAudio}
+  />
+</div>
           <ul className="list-group">
-            {surat.ayat.map((ayat) => (
-              <li key={ayat.nomorAyat}>
-                <div className="list-group-item d-flex justify-content-between">
-                  <span className=" align-items-center arabic-text">
-                    {ayat.teksArab}
-                  </span>
-                  <div className=" d-flex align-items-center">
-                    <span className="badge text-bg-primary rounded-sm d-flex align-items-center p-2 me-1">
-                      {ayat.nomorAyat}
-                    </span>
-                    <span>
-                      <AudioPlayer
-                        key={ayat.nomorAyat}
-                        url={ayat.audio["05"]}
-                        currentAudio={currentAudio}
-                        setCurrentAudio={setCurrentAudio}
-                      ></AudioPlayer>
-                    </span>
-                  </div>
-                </div>
-              </li>
-            ))}
+          {surat.ayat.map((ayat) => (
+  <li key={ayat.nomorAyat} className="list-group-item">
+    <div className="d-flex justify-content-between mb-2">
+      <span className="align-items-center arabic-text">
+        {ayat.teksArab}
+      </span>
+      <div className="d-flex align-items-center">
+        <span className="badge text-bg-primary rounded-sm d-flex align-items-center p-2 me-1">
+          {ayat.nomorAyat}
+        </span>
+        <span>
+          <AudioPlayer
+            key={ayat.nomorAyat}
+            url={ayat.audio["05"]}
+            currentAudio={currentAudio}
+            setCurrentAudio={setCurrentAudio}
+          />
+        </span>
+      </div>
+    </div>
+    <div className="mt-1 teks-indonesia" style={{ fontStyle: "italic" }}>
+      {ayat.teksIndonesia}
+    </div>
+  </li>
+))}
+
           </ul>
         </div>
       </div>
